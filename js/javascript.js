@@ -8,7 +8,7 @@ function getComputerChoice(){
 const computerSelection = getComputerChoice();
 let playerSelection;
 //Round played player chooses their hand and computer chooses it's randomly
-function playRound(computerSelection,playerSelection){
+    function playRound(computerSelection,playerSelection){
     //prompting player to choose
     playerSelection = prompt("Choose a hand you want to play Rock, Paper or Scissors");
     // calling function getcomputer choice so it picks randomly every turn
@@ -18,13 +18,12 @@ function playRound(computerSelection,playerSelection){
             case "ROCK":
                 return console.log("It's a draw");
             break;
-            break;playRound(computerSelection);
             case "SCISSORS":
                 return console.log("You lose! Rock beats Scissors!"),computerScore++;
-            break;playRound(computerSelection);
+            break;
             case "PAPER":
                 return console.log("You win! Paper beats Rock"), playerScore++;
-            break;playRound(computerSelection);
+            break;
         }
     }else if(computerSelection === "Paper"){
         switch(playerSelection.toUpperCase()){
@@ -33,7 +32,7 @@ function playRound(computerSelection,playerSelection){
             break;
             case "SCISSORS":
                 return console.log("You win! Scissors beat Paper"),playerScore++;
-            break;playRound(computerSelection);
+            break;
             case "PAPER":
                 return console.log("It's a draw");
             break;
@@ -45,10 +44,10 @@ function playRound(computerSelection,playerSelection){
             break;
             case "SCISSORS":
                 return console.log("It's a draw!")
-            break ;playRound(computerSelection);
+            break ;
             case "PAPER":
                 return console.log("You lose! Scissors beat Paper!"),computerScore++;
-            break ;playRound(computerSelection);
+            break ;
         }
     }    
 }
@@ -68,21 +67,24 @@ function playRound(computerSelection,playerSelection){
     function game(){
     computerScore = 0;
     playerScore = 0;
-    playRound(computerSelection,playerSelection)
-    playRound(computerSelection,playerSelection)
-    playRound(computerSelection,playerSelection)
-    playRound(computerSelection,playerSelection)
-    playRound(computerSelection,playerSelection)
+    // This repeats the function playRound 5 times
+    for(let i = 1; i < 6; i++ ){
+        playRound(i)
+    }
     if (playerScore > computerScore) {
-        console.log('You win!     (You: ' + playerScore + '  Computer: ' + computerScore + 
+        console.log('You win!...   (Your score: ' + playerScore + '  Computer: ' + computerScore + 
         ')');
-    } else {
-        console.log('You lose...  (You: ' + playerScore + '  Computer: ' + computerScore + 
+    } else if(computerScore > playerScore) {
+        console.log('You lose...  (Your score: ' + playerScore + '  Computer: ' + computerScore + 
         ')');
+    }else{
+        console.log(`It's a draw... (Your score: ` + playerScore + `  Computer: ` + computerScore + 
+        `)`);
     }
 }
 
 game()
+
 
 
 
