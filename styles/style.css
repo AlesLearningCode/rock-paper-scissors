@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 25px;
+    color: white;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column; 
+    background-image: url('../img/background.jpg');
+}
+button{
+    padding: 40px;
+    margin: 10px;
+}
+h1{
+    margin-bottom: 40px;
+}
+img{
+    height: 200px;
+    width: auto;
+}
+.game{
+    display: flex;
+}
+.gameBtn{
+    margin: 20px;
+}
+.roundMsg{
+    margin-top: 100px;
+}

@@ -3,7 +3,7 @@
     const btnPaper = document.querySelector(`.paper`);
     const roundMessage = document.querySelector(`.roundMsg`)
     const endScore = document.querySelector(`.endScore`)
-    const buttons = document.querySelectorAll(`button`)
+    const buttons = document.querySelectorAll(`.gameBtn`)
 
     const computerSelection = getComputerChoice();
     let playerSelection; 
@@ -79,8 +79,8 @@
             playRound(computerSelection,"PAPER")
             endScore.textContent = `${playerScore} - ${computerScore}`
         })
-        buttons.forEach((button) => {
-            button.addEventListener(`click`, () => {
+        buttons.forEach((i) => {
+            i.addEventListener(`click`, () => {
                 if (playerScore >= 5){
                     endScore.textContent = 'You win!...   (Your score: ' + playerScore + '  Computer: ' + computerScore + 
                 ')', playerScore = 0, computerScore = 0;
