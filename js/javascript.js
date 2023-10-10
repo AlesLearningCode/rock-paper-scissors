@@ -83,10 +83,10 @@
             button.addEventListener(`click`, () => {
                 if (playerScore >= 5){
                     endScore.textContent = 'You win!...   (Your score: ' + playerScore + '  Computer: ' + computerScore + 
-                ')';
+                ')', playerScore = 0, computerScore = 0;
                 } else if(computerScore >= 5){
                 endScore.textContent = 'You lose!...   (Your score: ' + playerScore + '  Computer: ' + computerScore + 
-                ')';
+                ')', playerScore = 0, computerScore = 0;
                 }
             });
         });
