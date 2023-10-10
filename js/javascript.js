@@ -1,20 +1,16 @@
-//Computer choice randomization between rock, paper,scissors
-function getComputerChoice(){
-    let random = ["Rock","Paper","Scissors"];
-    let randomize = random[Math.floor(Math.random()*random.length)]
-    return randomize
+    //Computer choice randomization between rock, paper,scissors
+    function getComputerChoice(){
+    let computerInput = ["Rock","Paper","Scissors"];
+    let randomizeArray = computerInput[Math.floor(Math.random()*computerInput.length)];
+    return randomizeArray;
 }
+    
+    let playerSelection;
 
-const computerSelection = getComputerChoice();
-let playerSelection;
-//Round played player chooses their hand and computer chooses it's randomly
-    function playRound(computerSelection,playerSelection){
-    //prompting player to choose
-    playerSelection = prompt("Choose a hand you want to play Rock, Paper or Scissors");
-    // calling function getcomputer choice so it picks randomly every turn
+    function playRound(computerSelection, playerSelection){
     computerSelection = getComputerChoice();
     if(computerSelection === "Rock"){
-        switch(playerSelection.toUpperCase()){
+        switch(playerSelection){
             case "ROCK":
                 return console.log("It's a draw");
             break;
@@ -26,7 +22,7 @@ let playerSelection;
             break;
         }
     }else if(computerSelection === "Paper"){
-        switch(playerSelection.toUpperCase()){
+        switch(playerSelection){
             case "ROCK":
                 return console.log("You lose! Paper beats Rock"),computerScore++;
             break;
@@ -38,7 +34,7 @@ let playerSelection;
             break;
             }
     }else{
-        switch(playerSelection.toUpperCase()){
+        switch(playerSelection){
             case "ROCK":
                 return console.log("You win! Rock beats Scissors"),playerScore++;
             break;
@@ -51,26 +47,15 @@ let playerSelection;
         }
     }    
 }
-/*function getComputerChoice(){
-    let randomize = parseInt(Math.random() *3);
-    if(randomize === 2){
-        return "Rock";
-    }else if(randomize === 1){
-        return "Paper";
-    }else{
-        return "Scissors" ;
-    }
-}*/
-// let playerSelection = p if (playerScore > computerScore) {
+    const computerSelection = getComputerChoice();
     let computerScore , playerScore;
-    // a function to call playRound 5 times and decide who is winner
+   
     function game(){
     computerScore = 0;
     playerScore = 0;
-    // This repeats the function playRound 5 times
-    for(let i = 1; i < 6; i++ ){
+    /*for(let i = 1; i <= 5; i++ ){
         playRound(i)
-    }
+    }*/
     if (playerScore > computerScore) {
         console.log('You win!...   (Your score: ' + playerScore + '  Computer: ' + computerScore + 
         ')');
@@ -82,9 +67,20 @@ let playerSelection;
         `)`);
     }
 }
+    
 
-game()
-
-
-
+    const btnRock = document.querySelector(`.rock`);
+    const btnScissors = document.querySelector(`.scissors`);
+    const btnPaper = document.querySelector(`.paper`);
+    btnRock.addEventListener(`click`, function Rock(){
+        playRound(computerSelection,"ROCK")
+     })
+  
+    btnScissors.addEventListener(`click`, () => {
+        playRound(computerSelection,"SCISSORS")
+     })
+   
+    btnPaper.addEventListener(`click`, () => {
+        playRound(computerSelection,"PAPER")
+    })
 
